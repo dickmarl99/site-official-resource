@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再一次，与爱游戏重逢</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f3ec;
+            font-family: 'Georgia', 'Times New Roman', '宋体', 'SimSun', serif;
+            color: #2c2b28;
+            line-height: 1.75;
+            padding: 2.5rem 1.25rem;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            background: #fefcf8;
+            padding: 2.8rem 2.8rem 3.2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        /* hero 开场短句 */
+        .hero-sentence {
+            font-size: 1.9rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #3d3b36;
+            margin-bottom: 2.2rem;
+            padding-left: 0.6rem;
+            border-left: 4px solid #b8a89a;
+            font-style: italic;
+        }
+
+        .hero-sentence span {
+            display: block;
+            margin-top: 0.35rem;
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #7c756b;
+            letter-spacing: 1.5px;
+            font-style: normal;
+        }
+
+        /* 承接段落 */
+        .greeting {
+            font-size: 1.05rem;
+            margin-bottom: 2.2rem;
+            text-indent: 2em;
+            word-spacing: 0.5px;
+            color: #3d3a35;
+        }
+
+        .greeting strong {
+            font-weight: 600;
+            color: #624d3b;
+        }
+
+        /* 引用块 / 提示框 */
+        .note-box {
+            background: #f2ece3;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 2.2rem;
+            border-radius: 14px;
+            border-left: 6px solid #b19f8b;
+            font-size: 0.98rem;
+            color: #3d372e;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .note-box p {
+            margin-bottom: 0.6rem;
+        }
+
+        .note-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .note-box .label {
+            display: inline-block;
+            font-weight: 600;
+            background: #dacfc1;
+            color: #2b2822;
+            padding: 0.05rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+
+        /* 特点列表 — 温和叙述式 */
+        .features {
+            margin: 2.4rem 0 2rem;
+            padding: 0;
+            list-style: none;
+        }
+
+        .features li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.3rem;
+            align-items: flex-start;
+            font-size: 1.02rem;
+            color: #3d3a33;
+            border-bottom: 1px dashed #e8e0d5;
+            padding-bottom: 1rem;
+        }
+
+        .features li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .features .num {
+            flex-shrink: 0;
+            width: 2rem;
+            height: 2rem;
+            background: #d6cabc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #3b342b;
+            margin-top: 0.2rem;
+        }
+
+        .features .desc {
+            flex: 1;
+        }
+
+        .features .desc strong {
+            color: #5a4c3b;
+            font-weight: 600;
+        }
+
+        /* 场景与回忆段落 */
+        .scene {
+            margin: 2rem 0;
+            padding: 1.2rem 0 0.2rem;
+        }
+
+        .scene p {
+            text-indent: 2em;
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
+        }
+
+        .scene p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e5ddd2;
+            text-align: center;
+            font-size: 0.96rem;
+            color: #6e665d;
+            line-height: 1.8;
+        }
+
+        .closing .heart {
+            display: inline-block;
+            margin: 0 0.3rem;
+            color: #ac8f78;
+        }
+
+        .closing a {
+            color: #5e4e3d;
+            text-decoration: none;
+            border-bottom: 1px dotted #b9aa98;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .closing a:hover {
+            color: #2f2821;
+            border-bottom-color: #2f2821;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+
+            .container {
+                padding: 1.8rem 1.2rem;
+                border-radius: 16px;
+            }
+
+            .hero-sentence {
+                font-size: 1.6rem;
+                padding-left: 0.4rem;
+                border-left-width: 3px;
+            }
+
+            .features li {
+                gap: 0.8rem;
+            }
+
+            .features .num {
+                width: 1.7rem;
+                height: 1.7rem;
+                font-size: 0.7rem;
+            }
+
+            .note-box {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero-sentence {
+                font-size: 1.35rem;
+                letter-spacing: 1px;
+            }
+
+            .container {
+                padding: 1.4rem 0.9rem;
+            }
+
+            .greeting {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 开场短句 -->
+        <div class="hero-sentence">
+            有些地方，去过了便想再回去。
+            <span>—— 记一次安静的探访</span>
+        </div>
+
+        <!-- 承接段落：再次访问 / 收藏 / 持续关注 -->
+        <p class="greeting">
+            很久没有登录那个熟悉的页面了吧。<strong>书签栏里</strong>，它仍安静地躺在某个文件夹中，像一本翻到一半的书，等你再次坐下。<strong>收藏夹</strong>不只是网址的集合，更是一份私人的索引，标记着你曾在意过的事。<strong>而持续关注</strong>，有时不需要理由，只要一个温柔的习惯。
+        </p>
+
+        <p class="greeting">
+            最近，我重新打开了它——<a href="https://site-official-i-game.com.cn" style="color:#5a4c3b; text-decoration: underline dotted #b9aa98;">爱游戏</a>。界面还是那样朴素干净，没有浮夸的弹窗，也没有催促注册的按钮。你可以在任何时间点进来，翻翻旧内容，或者看看新变化。就像走进一家熟悉的小店，店主只是点点头，说一声“来啦”。
+        </p>
+
+        <!-- 提示框 / 引用块 -->
+        <div class="note-box">
+            <span class="label">📌 一处安静的角落</span>
+            <p>如果你也习惯在深夜慢慢浏览，或者想找一个不被打扰的地方待一会儿，不妨把「爱游戏」加入书签。它不追热点，不制造焦虑，只安安静静地呈现属于游戏的另一面。</p>
+            <p style="margin-top:0.5rem;">—— 某位用户的留言</p>
+        </div>
+
+        <!-- 特点列表：以故事叙述的方式展开 -->
+        <ul class="features">
+            <li>
+                <span class="num">·</span>
+                <div class="desc"><strong>不打扰的陪伴</strong> —— 你不会收到任何推送通知，没有弹窗提示更新，一切都由你自己决定什么时候回来。这种沉默的信任，反而让人更愿意常来看看。</div>
+            </li>
+            <li>
+                <span class="num">·</span>
+                <div class="desc"><strong>旧文与新生</strong> —— 站内保留着几年前的文章，读起来仍有余温；同时也在慢慢长出新的内容，不急不缓，像四季轮换。收藏它，等于收藏了一段会生长的时间。</div>
+            </li>
+            <li>
+                <span class="num">·</span>
+                <div class="desc"><strong>干净的目光</strong> —— 没有满屏的广告或排行榜，也没有“猜你喜欢”的算法围猎。每一页都留有足够的空白，让注意力回到文字和画面本身。</div>
+            </li>
+            <li>
+                <span class="num">·</span>
+                <div class="desc"><strong>专属的节奏</strong> —— 你可以一周来一次，也可以隔几个月再推开这扇门。它不会因为你离开太久而变得陌生，也不会因为你频繁出现而改变态度。持续关注，原来可以这样轻松。</div>
+            </li>
+        </ul>
+
+        <!-- 场景与回望 -->
+        <div class="scene">
+            <p>
+                我记得第一次打开「爱游戏」是在一个雨天的下午。当时只是想找一款老游戏的介绍，没想到顺着链接一篇篇读下去，窗外的雨停了都没察觉。后来那篇文章被我截图收藏，网址也顺手存进了浏览器的书签栏。
+            </p>
+            <p>
+                再后来，每次换电脑或清理书签，都会犹豫一下，最后还是把它留下。有些地方说不上哪里好，但就是不想弄丢。就像一本老旧的通讯录，不一定每天都翻，可你知道它就在那里。
+            </p>
+        </div>
+
+        <!-- 温和结尾 + FAQ 摘要式的自然收束 -->
+        <div class="closing">
+            <p>
+                如果你也曾在某个时刻与<a href="https://site-official-i-game.com.cn">爱游戏</a>相遇，不妨把它留在收藏夹里。<br>
+                不需要刻意记住，也不必担心遗忘——某天你点开的时候，它依然在那里。
+            </p>
+            <p style="margin-top: 1.2rem; font-size: 0.9rem; color: #8c8379;">
+                <span style="border-bottom: 1px solid #ddd6ca;">也许你会问：</span><br>
+                内容会经常更新吗？—— 随缘而动，不疾不徐。<br>
+                需要注册吗？—— 不需要，打开即看。<br>
+                手机上看方便吗？—— 页面很轻，加载很快，和桌面一样舒服。<br>
+                <span style="display: inline-block; margin-top: 0.6rem; color: #5f554a;">答案不在 FAQ 里，而在你下一次打开的时候。</span>
+            </p>
+            <p style="margin-top: 1.8rem;">
+                —— 感谢你的再次访问与长久关注 <span class="heart">♥</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
