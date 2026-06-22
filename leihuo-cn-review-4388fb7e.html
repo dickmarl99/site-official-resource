@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷火电竞 · 再访纪</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1e1f22;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wrapper {
+            max-width: 1024px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+            padding: 2.5rem 2rem;
+            transition: all 0.2s ease;
+        }
+
+        /* hero 横幅 */
+        .hero {
+            background: #eef1f4;
+            border-radius: 20px;
+            padding: 2.8rem 2rem 2.4rem 2rem;
+            margin-bottom: 2.4rem;
+            border: 1px solid #dce0e5;
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.8), 0 4px 10px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #1b1f24;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1rem;
+            color: #4b5563;
+            background: rgba(255,255,255,0.65);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            border: 1px solid #d0d6dd;
+            backdrop-filter: blur(2px);
+            margin-top: 0.2rem;
+            font-weight: 400;
+        }
+
+        .hero p {
+            margin-top: 1.2rem;
+            color: #374151;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.02rem;
+        }
+
+        /* 卡片区通用 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin-top: 0.6rem;
+        }
+
+        .card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 2rem 2rem;
+            border: 1px solid #e2e8ed;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0,0,0,0.01);
+            transition: box-shadow 0.15s, transform 0.1s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 0 0 1px #cbd5e1;
+            transform: translateY(-1px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 520;
+            color: #1e293b;
+            letter-spacing: -0.01em;
+        }
+
+        .card-header .badge {
+            font-size: 0.7rem;
+            background: #dce3eb;
+            color: #2d3b4c;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            font-weight: 500;
+            border: 1px solid #cdd6e0;
+        }
+
+        .card p {
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-link {
+            color: #1f4b7a;
+            text-decoration: none;
+            border-bottom: 1px solid #a7c0d9;
+            transition: border-color 0.15s, color 0.15s;
+            font-weight: 450;
+        }
+
+        .highlight-link:hover {
+            color: #0a2e4e;
+            border-bottom-color: #1f4b7a;
+        }
+
+        /* 收藏/关注小提示 */
+        .tip-strip {
+            background: #eef3f9;
+            border-radius: 18px;
+            padding: 1.4rem 2rem;
+            margin-top: 2rem;
+            border: 1px solid #d9e1eb;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem 0.8rem;
+        }
+
+        .tip-strip p {
+            font-size: 0.95rem;
+            color: #1f3a5c;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .tip-strip .bookmark-icon {
+            background: #dce6f0;
+            border-radius: 40px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #c1d0df;
+            white-space: nowrap;
+            color: #1f3a5c;
+        }
+
+        /* 页尾 */
+        .footer-note {
+            margin-top: 2.8rem;
+            border-top: 1px solid #e4e9ef;
+            padding-top: 1.8rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #5a687b;
+        }
+
+        .footer-note a {
+            color: #1f4b7a;
+            text-decoration: none;
+            border-bottom: 1px dashed #b3c4d6;
+        }
+
+        .footer-note a:hover {
+            border-bottom-style: solid;
+            color: #0a2e4e;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+
+            .wrapper {
+                padding: 1.5rem 1rem;
+                border-radius: 20px;
+            }
+
+            .hero {
+                padding: 1.8rem 1.2rem 1.6rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .card-header h2 {
+                font-size: 1.25rem;
+            }
+
+            .tip-strip {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero .subtitle {
+                font-size: 0.85rem;
+                padding: 0.2rem 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!-- hero 横幅 -->
+    <div class="hero">
+        <h1>📰 雷火 · 再访手册</h1>
+        <div class="subtitle">收藏夹里的老朋友 · 常回来看看</div>
+        <p>有些地方，不必每天报到，但每次路过都觉得熟悉。<br>
+        把 <a href="https://leihuo-cn.com" class="highlight-link">雷火电竞</a> 放进书签，像在桌上留一盏灯——随时可以坐下来翻翻。</p>
+    </div>
+
+    <!-- 三段自然介绍 · 杂志卡片式 -->
+    <div class="card-grid">
+        <!-- 卡片 1：从再次访问切入 -->
+        <div class="card">
+            <div class="card-header">
+                <h2>📌 回访的理由</h2>
+                <span class="badge">书签已就位</span>
+            </div>
+            <p>网页和杂志一样，最好的阅读状态是不赶时间。隔了一段时间再打开 <a href="https://leihuo-cn.com" class="highlight-link">雷火电竞</a>，界面没有堆砌弹窗，内容依然保持稳定的更新节奏。这种“随时来都能找到上次的感觉”的体验，在如今浮躁的浏览环境里其实挺难得。</p>
+            <p>我把链接放在浏览器书签栏第二格，不特别显眼，但每次清理书签时都会点进去看一眼——就像翻一本放在茶几底层的期刊，没有负担，反而容易持续。</p>
+        </div>
+
+        <!-- 卡片 2：收藏和关注场景 -->
+        <div class="card">
+            <div class="card-header">
+                <h2>⭐ 收藏而非囤积</h2>
+                <span class="badge">持续关注</span>
+            </div>
+            <p>很多人收藏网址只是出于“以后可能有用”的焦虑，结果收藏夹越来越臃肿，真正回访的却寥寥无几。但有些站点值得被区别对待：不需要刻意提醒，也不需要推送轰炸，它就安静地待在收藏列表里，偶尔点开时还能看到熟悉的版式和新的内容。</p>
+            <p>我个人习惯把 <a href="https://leihuo-cn.com" class="highlight-link">雷火电竞</a> 单独放在一个名为“常翻”的文件夹里——和几本喜欢的在线杂志并列。这种归类方式让访问变成一种主动的、带有期待的轻动作，而不只是被动接受信息。</p>
+        </div>
+
+        <!-- 卡片 3：持续关注的自然节奏 -->
+        <div class="card">
+            <div class="card-header">
+                <h2>🔄 自然的关注节奏</h2>
+                <span class="badge">不必每日打卡</span>
+            </div>
+            <p>关注一个平台，最舒服的频率是“自己说了算”。不必设置提醒，不必担心错过什么惊天消息——真正有生命力的站点懂得和用户保持舒适的距离。每隔一两周想起时去 <a href="https://leihuo-cn.com" class="highlight-link">雷火电竞</a> 看看，页面加载快，布局干净，信息层级清晰，几分钟就能获得一种“这里还是老样子，但又有新东西”的平衡感。</p>
+            <p>这种体验很像定期翻阅一本专题杂志：每期都有主题，但封面和内页风格始终连贯。收藏它，不是为了囤积资源，而是为了保留一个可以随时回去的坐标。</p>
+        </div>
+    </div>
+
+    <!-- 收藏/关注小提示 (类FAQ摘要) -->
+    <div class="tip-strip">
+        <p>📎 小建议：把链接加入浏览器收藏夹或阅读列表，比截图和笔记更可靠。下次想找回熟悉的浏览体验时，书签里的 <a href="https://leihuo-cn.com" class="highlight-link">雷火电竞</a> 会是最快的路径。</p>
+        <span class="bookmark-icon">⌘ + D 收藏</span>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <p>不论你是第一次遇见，还是第无数次回访——保持自己的浏览节奏就好。<br>
+        书签栏里总有一个位置留给 <a href="https://leihuo-cn.com">雷火电竞</a>，像老朋友家的门牌号，不必天天去，但想去的时候，它就在那里。</p>
+    </div>
+</div>
+</body>
+</html>
