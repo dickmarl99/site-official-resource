@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷火电竞 · 快速识别导航</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: #1e2a3a; background: #f5f7fa; }
+
+        /* 深色头图 */
+        .hero {
+            background: #0b1a2b;
+            background-image: radial-gradient(ellipse at 20% 50%, #1d3a52 0%, #0b1a2b 70%);
+            color: #e8edf2;
+            padding: 4rem 1.5rem 3.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+        }
+        .hero p {
+            max-width: 640px;
+            margin: 0.8rem auto 0;
+            font-size: 1.1rem;
+            color: #b6c9db;
+            font-weight: 300;
+        }
+        .hero .nav-line {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .hero .nav-line a {
+            color: #b6d8f0;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .hero .nav-line a:hover {
+            border-bottom-color: #f0b25f;
+            color: #f0dab0;
+        }
+
+        /* 浅色正文区 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3rem;
+        }
+
+        .intro-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 6px 18px rgba(0, 20, 30, 0.04);
+            margin-bottom: 2.5rem;
+        }
+        .intro-card h2 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: #0d2538;
+            margin-bottom: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+        .intro-card p {
+            color: #2e4055;
+            margin-bottom: 0.6rem;
+        }
+        .intro-card .tagline {
+            display: inline-block;
+            background: #e5ecf3;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #1e4c6b;
+            margin-top: 0.5rem;
+        }
+
+        /* 三个场景模块 – 卡片网格 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.6rem;
+            margin: 2rem 0 2.8rem;
+        }
+        @media (min-width: 680px) {
+            .scene-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        .scene-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eaedf2;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .scene-card:hover {
+            box-shadow: 0 10px 24px rgba(0, 20, 30, 0.06);
+            transform: translateY(-3px);
+        }
+        .scene-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #13283b;
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .scene-card p {
+            color: #3a4c61;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .scene-card .meta-note {
+            font-size: 0.8rem;
+            color: #7a8ea5;
+            margin-top: 1rem;
+            border-top: 1px dashed #dbe1e9;
+            padding-top: 0.8rem;
+        }
+
+        /* 常见说明 (FAQ摘要) */
+        .faq-summary {
+            background: #edf2f8;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0 1rem;
+        }
+        .faq-summary h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #0a2335;
+            margin-bottom: 1.4rem;
+        }
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #1b3b55;
+            margin-bottom: 0.2rem;
+        }
+        .faq-item p {
+            color: #2a4056;
+            font-size: 0.95rem;
+            margin-left: 0.2rem;
+        }
+
+        /* 强调色用于链接 (内文链接) */
+        a {
+            color: #1c6c9e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b0cce2;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+        a:hover {
+            color: #c7411e;
+            text-decoration-color: #c7411e;
+        }
+
+        .footer-note {
+            text-align: center;
+            border-top: 1px solid #d5dfe9;
+            padding-top: 2rem;
+            margin-top: 1.8rem;
+            color: #5b6f86;
+            font-size: 0.9rem;
+        }
+        .footer-note a {
+            color: #1a5575;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 460px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero { padding: 2.5rem 1rem 2rem; }
+            .intro-card { padding: 1.5rem; }
+            .faq-summary { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 + 顶部导航 -->
+    <header class="hero">
+        <h1>雷火电竞 · 识别导向</h1>
+        <p>从页面结构到内容描述，让新访客在几秒内判断网站用途。</p>
+        <nav class="nav-line">
+            <a href="#intro">概况</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+            <!-- 自然嵌入指向品牌的链接，可见文本必须严格等于“雷火电竞” -->
+            <a href="https://lhdj-cn.com">雷火电竞</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- 核心介绍 -->
+        <section class="intro-card" id="intro">
+            <h2>快速识别一个网站</h2>
+            <p>
+                当你第一次打开一个网站，最关心的是它提供什么、是否匹配你的需求。
+                <a href="https://lhdj-cn.com">雷火电竞</a> 这个地址所对应的页面，其内容围绕某一特定领域展开。
+                下方三个模块分别从不同侧面概括了该站点的常见信息范畴，帮助你形成初步印象。
+            </p>
+            <p>
+                这里不预设立场，只描述可能看到的内容类型：平台介绍、功能模块、常见问题等。
+                阅读时请依据自身判断，确认是否符合预期。
+            </p>
+            <span class="tagline">轻量导航 · 信息概括</span>
+        </section>
+
+        <!-- 三个场景模块 -->
+        <div class="scene-grid" id="scenes">
+            <div class="scene-card">
+                <h3>📋 平台概览</h3>
+                <p>首页通常展示品牌定位、主要服务领域以及面向的用户群体。结构上会包含导航、活动摘要、平台规则入口，方便新用户快速了解基本轮廓。</p>
+                <div class="meta-note">例如：品牌背景、服务类型</div>
+            </div>
+            <div class="scene-card">
+                <h3>🎯 功能与模块</h3>
+                <p>站点内会划分不同的功能分区，比如资讯、互动、查询或工具类页面。每个模块都有对应的说明和操作引导，用户可根据需要进入。</p>
+                <div class="meta-note">例如：信息展示、交互入口</div>
+            </div>
+            <div class="scene-card">
+                <h3>📌 帮助与须知</h3>
+                <p>常见说明、条款摘要、操作指南通常集中在一个区域。这部分内容旨在降低使用门槛，帮助用户理解规则或解决基础疑问。</p>
+                <div class="meta-note">例如：FAQ、政策摘要</div>
+            </div>
+        </div>
+
+        <!-- 常见说明 (FAQ摘要) -->
+        <div class="faq-summary" id="faq">
+            <h3>常见说明摘要</h3>
+            <div class="faq-item">
+                <strong>这个网站主要做什么？</strong>
+                <p>通过页面结构可以判断，它是一个围绕特定主题提供信息或服务的平台。具体内容需查看实际页面。</p>
+            </div>
+            <div class="faq-item">
+                <strong>如何确认网站是否适合我？</strong>
+                <p>建议先浏览首页导航和介绍段落，再查看具体的功能模块或说明页面。网站内通常有明确的分类标签。</p>
+            </div>
+            <div class="faq-item">
+                <strong>有哪些快速了解的方式？</strong>
+                <p>可以关注页面上方的栏目名称、常见问题区域以及底部说明。很多网站会把核心用途放在显眼位置。</p>
+            </div>
+            <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #3b5770;">
+                如需直接访问网站，可点击上方导航或此处：<a href="https://lhdj-cn.com">雷火电竞</a>
+            </p>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer-note">
+            <p>本页面作为识别导航页，仅提供结构化的内容描述。实际信息以 <a href="https://lhdj-cn.com">雷火电竞</a> 官方页面为准。</p>
+        </div>
+
+    </div>
+    
+</body>
+</html>
